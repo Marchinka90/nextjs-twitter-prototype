@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS public.follows (
   user_id bigint not null references public.users (id),
   follower_id bigint not null references public.users (id),
   created_at timestamp default now(),
-  updated_at timestamp default now()
+  updated_at timestamp default now(),
+  unique(user_id, follower_id)
 );
 
 CREATE INDEX post_user_id_index on public.posts (user_id);
