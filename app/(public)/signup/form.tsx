@@ -34,7 +34,7 @@ export default function Form() {
   }
 
   return (
-    <form 
+    <form
       className="flex flex-col gap-2 p-5 max-w-xs w-full bg-slate-800 rounded-lg"
       onSubmit={handleSubmit}
     >
@@ -87,6 +87,14 @@ export default function Form() {
         </div>
       </div>
       <button type="submit" className="mt-4 bg-slate-900 text-white p-3 rounded-lg">Sign Up</button>
+      {errors.map((error) => {
+        return (
+          <div key={error} className="text-red-600">
+            {error}
+          </div>
+        )
+      })
+      }
     </form>
   )
 }
