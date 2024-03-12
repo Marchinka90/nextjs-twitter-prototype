@@ -1,5 +1,7 @@
 export default function Footer() {
   return (
-    <footer>Footer</footer>
+    <footer className="text-black">
+      &copy; Twitter Prototype {new Date().getFullYear()}
+    </footer>
   )
 }
