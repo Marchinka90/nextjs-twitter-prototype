@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     .setProtectedHeader({ alg: 'HS256' })
     .setSubject(user.id)
     .setExpirationTime('2w')
-    .sign(new TextEncoder().encode('my-jwt-secret'));
+    .sign(new TextEncoder().encode(process.env.JWT_SECRET));
 
   const response = NextResponse.json({ msg: 'Login Success' });
   response.cookies.set('jwt-token', token, {
