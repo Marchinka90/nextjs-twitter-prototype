@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import useSWR from "swr";
 import User from "../components/user";
 
@@ -16,8 +16,6 @@ export default function Header() {
       Loading...
     </div>
   }
-
-  console.log(data);
 
   return (
     <header className="flex flex-row w-full p-5 bg-slate-800 rounded-lg my-2 justify-between items-center">
