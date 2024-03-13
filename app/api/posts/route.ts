@@ -19,8 +19,5 @@ export async function GET(request: Request) {
 
   const res = await sql(statement, [jwtPayload.sub, limit, offset]);
 
-
   return NextResponse.json({ data: res.rows });
-
-
 }
