@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <header className="flex flex-row w-full p-5 bg-slate-800 rounded-lg my-2 justify-between items-center">
       <div>
-        <h1 className="font-mono text-lg">Twitter Prototype</h1>
+        <h1 className="font-mono text-lg">NextTwitter</h1>
       </div>
       <div>
         <User user={data.data} href="account"/>
