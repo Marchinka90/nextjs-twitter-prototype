@@ -1,10 +1,10 @@
 "use client";
 import FeedContainer from "./feed-container";
 
-export default async function FeedPage() {
+export default function FeedPage() {
   return (
     <div>
-      <h2>Feed Page</h2>
+      <h2>Feed</h2>
       <FeedContainer />
     </div>
   )

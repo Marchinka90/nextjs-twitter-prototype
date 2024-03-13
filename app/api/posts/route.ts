@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   const limit = 3;
   const offset = page * 3;
   const statement = `select p.*, u.username, u.avatar from posts p
-    inner join users u on p.user_id = u.id where user_id = $1)
+    inner join users u on p.user_id = u.id where user_id = $1
     order by created_at desc limit $2 offset $3;`;
 
   if (username) {
