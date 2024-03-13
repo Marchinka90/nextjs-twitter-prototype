@@ -21,3 +21,13 @@ export async function GET(request: Request) {
 
   return NextResponse.json({ data: res.rows });
 }
+
+export async function POST(request: Request) {
+  const body = await request.json()
+  const jwtPayload = await getJWTPayload();
+
+  const res = await sql(`insert into posts (user_id, content) values ($1, $2) returning *`,
+    [jwtPayload.sub, body.content]);
+
+  return NextResponse.json({ data: res.rows[0] }, { status: 201 });
+}
