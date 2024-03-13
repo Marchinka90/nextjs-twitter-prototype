@@ -1,7 +1,12 @@
-export default async function FollowersPage() {
+"use client";
+
+import FollowersContainer from "./followers-container";
+
+export default function FollowersPage() {
   return (
     <div>
-      <h1>Followers Page</h1>
+      <h2>Followers</h2>
+      <FollowersContainer />
     </div>
   )
 }
