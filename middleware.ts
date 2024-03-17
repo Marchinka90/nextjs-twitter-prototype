@@ -6,7 +6,8 @@ export async function middleware(request: NextRequest) {
 
   const authenticatedAPIRoutes = [
     pathname.startsWith('/api/users'),
-    pathname.startsWith('/api/posts')
+    pathname.startsWith('/api/posts'),
+    pathname.startsWith('/api/follows')
   ];
 
   if (authenticatedAPIRoutes.includes(true)) {
