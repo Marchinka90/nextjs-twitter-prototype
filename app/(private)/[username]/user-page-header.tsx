@@ -1,5 +1,3 @@
-"use client";
-
 import useSWR, { mutate } from "swr";
 
 export default function UserPageHeader({username} : {username: string}) {
@@ -42,16 +40,14 @@ export default function UserPageHeader({username} : {username: string}) {
   }
 
   return (
-    <header>
-      <div>
-        <h1>{username}</h1>
+    <header className="w-full bg-slate-800 p-2 rounded-lg flex flex-row justify-between">
+        <h1 className="text-lg font-bold">{username}</h1>
         {dataFollow.data.length > 0 && (
-          <button onClick={handleUnfollow}>Unfollow</button>
+          <button onClick={handleUnfollow} className="bg-slate-900 p-2 rounded-lg">Unfollow</button>
         )}
         {dataFollow.data.length == 0 && (
-          <button onClick={handleFollow}>Follow</button>
+          <button onClick={handleFollow} className="bg-slate-900 p-2 rounded-lg">Follow</button>
         )}
-      </div>
     </header>
   )
 }
