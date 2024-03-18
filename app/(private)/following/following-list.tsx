@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 export default function FollowingList({ index }: { index: number }) {
   const { data: userData} = useSWR('/api/users/profile');
-  const { data: followerData } = useSWR(`/api/users/${userData.data.id}/following?page=${index}`);
+  const { data: followerData } = useSWR(() => `/api/users/${userData.data.id}/following?page=${index}`);
 
   if (!followerData) { return <div>Loading...</div>}
 
