@@ -2,6 +2,7 @@
 
 import useSWR from "swr";
 import Form from "./form";
+import DeleteButton from "./delete-btn";
 
 export default function EditPostPage({ params }: { params: { id: number } }) {
   const { data, error, isLoading } = useSWR(`/api/posts/${params.id}`);
@@ -15,7 +16,7 @@ export default function EditPostPage({ params }: { params: { id: number } }) {
       <h2>Edit Post</h2>
       <div className="flex flex-col gap-10">
         <Form post={data.data}/>
-        {/* <DeleteBtn /> */}
+        <DeleteButton post={data.data}/>
       </div>
     </div>
   )
