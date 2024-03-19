@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { id: number } }
 ) {
   const jwtPayload = await getJWTPayload();
-  const res = await sql(`select from posts where id = $1 and user_id = $2`,
+  const res = await sql(`select * from public.posts where id = $1 and user_id = $2`,
     [params.id, jwtPayload.sub]);
 
   if (res.rowCount == 0) {
@@ -23,14 +23,14 @@ export async function PATCH(
 ) {
   const body = await request.json();
   const jwtPayload = await getJWTPayload();
-  const res = await sql(`select from posts where id = $1 and user_id = $2`,
+  const res = await sql(`select * from public.posts where id = $1 and user_id = $2`,
     [params.id, jwtPayload.sub]);
 
   if (res.rowCount == 0) {
     return NextResponse.json({ error: 'Not Found' }, { status: 404 });
   }
 
-  await sql(`update posts set content = $1 where id = $1 and user_id = $2`,
+  await sql(`update public.posts set content = $1 where id = $2 and user_id = $3`,
     [body.content, params.id, jwtPayload.sub]);
 
   return NextResponse.json({ msg: 'Update Succes' });
