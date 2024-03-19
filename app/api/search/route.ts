@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Search Params Required' }, { status: 400 });
   }
 
-  const res = await sql(`select if, username, avatar from public.users where username ilike $1 limit 10`,
+  const res = await sql(`select id, username, avatar from public.users where username ilike $1 limit 10`,
     [`%${search}%`]);
 
   return NextResponse.json({ data: res.rows });
