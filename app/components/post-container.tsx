@@ -2,9 +2,11 @@ import { useState } from "react";
 import PostList from "./post-list";
 
 export default function PostContainer({ 
-  username 
+  username,
+  showEditBtn 
 } : { 
-  username: string 
+  username: string,
+  showEditBtn?: boolean 
 }) {
   const [cnt, setCnt] = useState(1);
 
@@ -15,6 +17,7 @@ export default function PostContainer({
         index={i}
         key={i}
         username={username}
+        showEditBtn={showEditBtn}
       />
     )
   }
