@@ -1,11 +1,8 @@
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import { useSWRConfig } from "swr";
 
 export default function Form({post} : {post: PostI}) {
-  console.log(post)
   const router = useRouter();
-  const { mutate } = useSWRConfig();
   const [content, setContent] = useState(post.content);
 
   async function handleSubmit(e: FormEvent) {
@@ -18,7 +15,6 @@ export default function Form({post} : {post: PostI}) {
 
     if (res.ok) {
       setContent('');
-      // mutate((key) => typeof key === 'string' && key.startsWith('/api/posts'));
       router.push('/profile');
     }
   }
